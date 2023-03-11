@@ -1,0 +1,48 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h1{
+  text-align: center;
+  font-size: 3rem;
+}
+.accordion-list li{
+  list-style: none;
+  font-size: 1.2rem;
+}
+.accordion-list li input[type="radio"]{
+  display: none;
+}
+.accordion-list .accordion-img-block{
+  max-height: 0;
+  transition: .8s;
+  overflow: hidden;
+  transition: max-height 0.4s;
+}
+.icon{
+  transition: .7s;
+}
+
+/* при клике смена активного блока */
+.accordion-list label + input[type="radio"]:checked + .accordion-img-block{
+  max-height: 100%;
+  transition-duration: 0.5s;
+}
+/* показ при наведении */
+ input[type="radio"]:hover~.accordion-img-block{
+  transition-duration: .5s;
+  opacity: 1;
+  cursor: pointer;
+  max-height: 100%;
+}
+.input[type="radio"]:checked~.icon,
+.input[type="radio"]:hover~.icon {
+   rotate: 45deg;
+ }

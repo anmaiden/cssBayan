@@ -1,0 +1,120 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+  margin: 0 auto;
+}
+h1{
+  text-align: center;
+  font-size: 3rem;
+}
+.line{
+  margin-bottom: 3rem;
+}
+.wrapper{
+  text-align: center;
+  max-width: 50%;
+  margin: 0 auto;
+}
+.accordion-list li{
+  list-style: none;
+  font-size: 2.2rem;
+  border-bottom: 2px solid black;
+}
+
+.accordion-list li input[type="radio"]{
+  display: none;
+}
+
+.accordion-list .accordion-img{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.icon{
+  opacity: 0;
+  transition: .7s;
+}
+label{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: blue;
+}
+/* анимация поворота иконки */
+li:hover .icon,
+input[type="radio"]:hover .icon {
+  transform: rotate(45deg);
+}
+/* при клике смена активного блока */
+.accordion-list label + input[type="radio"]:checked + .accordion-img{
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+/*  показ при наведении */
+input[type="radio"]:checked~.accordion-img,
+input[type="radio"]:hover~.accordion-img{
+  overflow: visible;
+  cursor: pointer;
+  transition: max-height 1s ease-in-out;
+  max-height: 40rem;
+}
+/* у выбранной картинки поворот иконки */
+input[type="radio"]:checked~label .icon {
+  transform: rotate(45deg);
+  transition-duration: .5s;
+}
+/* появление всех иконок при наведении */
+.wrapper:hover .icon {
+  opacity: 1;
+}
+/* изменение цвета активной карточки аккордеона */
+.wrapper:hover label,
+input[type="radio"]:checked~label {
+  color: rgb(0, 0, 0);
+  transition: all 0.2s ease-in-out;
+}
+
+/* контрольные точки */
+
+@media (max-width: 820px) {
+  .accordion-list li {
+      font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .icon{
+    width: 15px;
+  }
+    .accordion-img{
+      max-width: 100%;
+    }
+}
+@media (max-width: 320px) {
+  .accordion-list li {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1rem;
+  }
+
+  .icon {
+    width: 10px;
+  }
+
+  .accordion-img {
+    max-width: 100%;
+  }
+}
+@media (hover: none) {
+  .icon{
+    opacity: 1;
+  }
+}

@@ -53,16 +53,16 @@ input[type="radio"]:hover .icon {
 }
 /* при клике смена активного блока */
 .accordion-list label + input[type="radio"]:checked + .accordion-img{
-  max-height: 100%;
-  transition: max-height 0.5s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 /*  показ при наведении */
 input[type="radio"]:checked~.accordion-img,
 input[type="radio"]:hover~.accordion-img{
   overflow: visible;
   cursor: pointer;
-  transition: max-height 0.5s ease-in-out;
-  max-height: 100%;
+  transition: max-height 1s ease-in-out;
+  max-height: 40rem;
 }
 /* у выбранной картинки поворот иконки */
 input[type="radio"]:checked~label .icon {
